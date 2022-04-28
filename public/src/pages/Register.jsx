@@ -39,9 +39,10 @@ function Register() {
             {
                 localStorage.setItem("chat-app-user", JSON.stringify(data.user));
             }
-            useNavigate
+            navigate("/");
         }
     };
+
 
     const handleValidation = () => {
         const {password,confirmPassword,username,email} = values;
