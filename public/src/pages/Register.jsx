@@ -24,7 +24,7 @@ function Register() {
     const handleSubmit=async(event) => {
         event.preventDefault();
         if(handleValidation()){
-            console.log("in Validation", registerRoute);
+            //console.log("in Validation", registerRoute);
             const {password,username,email} = values;
             const {data} = await axios.post(registerRoute,{
                 username,
@@ -38,8 +38,13 @@ function Register() {
             if(data.status===true)
             {
                 localStorage.setItem("chat-app-user", JSON.stringify(data.user));
+                // localStorage.setItem(
+                //     process.env.REACT_APP_LOCALHOST_KEY,
+                //     JSON.stringify(data.user)
+                //   );
+                navigate("/");
             }
-            navigate("/");
+            
         }
     };
 
@@ -75,7 +80,7 @@ function Register() {
     return (
         <>
             <FormContainer>
-                <form action="" onSubmit={(event) => handleSubmit(event)}>
+                <form  onSubmit={(event) => handleSubmit(event)}>
                     <div className="brand">
                         <img src={Logo} alt="Logo" />
                         <h1>Snappy</h1>
